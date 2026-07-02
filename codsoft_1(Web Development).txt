@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Landing Page</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #1f2937;
+            line-height: 1.6;
+            background-color: #f9fafb;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #2563eb;
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* About Section */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background-color: #ffffff;
+        }
+
+        .about-img {
+            flex: 1;
+            max-width: 400px;
+            height: 400px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-weight: bold;
+            border: 2px dashed #d1d5db;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .about-content p {
+            font-size: 17px;
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #f3f4f6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: #ffffff;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            font-weight: 600;
+            color: #1f2937;
+            border-top: 4px solid #2563eb;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #ffffff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .project-info p {
+            color: #4b5563;
+            font-size: 15px;
+        }
+
+        /* Resume Section */
+        .resume {
+            background-color: #f3f4f6;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            font-size: 18px;
+            color: #4b5563;
+        }
+
+        .contact-item strong {
+            color: #111827;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 40px 10%;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #1f2937;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Responsive Design Rules */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            nav a { margin: 0 10px; }
+            .about { flex-direction: column; text-align: center; }
+            .about-img { width: 100%; height: 250px; }
+            section { padding: 50px 5%; }
+            .contact-details { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-box">
+            <span class="logo">Alex Morgan</span>
+            <span class="tagline">Frontend Developer & Designer</span>
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <!-- Replace text with <img src="your-profile.jpg" alt="Alex Morgan"> when ready -->
+        <div class="about-img">
+            [ Your Image Placeholder ]
+        </div>
+        <div class="about-content">
+            <h3>Hi, I'm Alex</h3>
+            <p>I am a passionate web developer focused on building clean, user-friendly digital experiences. With over two years of hands-on practice tinkering with interface architectures, I love transforming complex layout logic into beautiful, responsive web applications.</p>
+            <p>When I am not styling grid systems, I am exploring backend integrations and optimising asset delivery workflows.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>My Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">HTML5 & Semantics</div>
+            <div class="skill-card">CSS3 & Flexbox/Grid</div>
+            <div class="skill-card">JavaScript (ES6+)</div>
+            <div class="skill-card">Responsive Design</div>
+            <div class="skill-card">Git & Version Control</div>
+            <div class="skill-card">UI/UX Prototyping</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Featured Work</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <!-- Replace text with <img src="project1.jpg" alt="E-Commerce Interface"> -->
+                <div class="project-img">[ Project Image 1 ]</div>
+                <div class="project-info">
+                    <h3>E-Commerce Dashboard</h3>
+                    <p>A clean analytics system layout built using advanced CSS grids, featuring dynamic sidebar navigation toggles.</p>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <!-- Replace text with <img src="project2.jpg" alt="Recipe App"> -->
+                <div class="project-img">[ Project Image 2 ]</div>
+                <div class="project-info">
+                    <h3>Recipe Finder App</h3>
+                    <p>A fully responsive mobile-first application web UI displaying food assets cleanly across multiple viewports.</p>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <!-- Replace text with <img src="project3.jpg" alt="Space Explorer UI"> -->
+                <div class="project-img">[ Project Image 3 ]</div>
+                <div class="project-info">
+                    <h3>Interactive Concept Map</h3>
